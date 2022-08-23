@@ -1,0 +1,36 @@
+{% extends 'plantilla_base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Api feriados</title>
+{% endblock %}
+{% block content %}
+<script>
+ $(document).ready(function(){
+    $.get("https://apis.digital.gob.cl/fl/feriados/2022",function(data){
+        $.each(data,function(i,item){
+            console.log(data)
+            $("#feriados").append("<tr><td>" + item.nombre + "<nombre/td><td>"+item.fecha+"</td>")
+        })             
+    } );
+ });
+</script>
+
+<div class="container">
+
+    <h1 class="text-center" >Feriados de Chile 2022</h1><br>
+    <br>
+
+    <table class="table table-dark table-hover" id="feriados">
+        <thead>
+            <th> Nombre</th>
+            <th> Fecha</th>
+
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

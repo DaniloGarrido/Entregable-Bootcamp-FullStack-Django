@@ -1,0 +1,54 @@
+{% extends 'plantilla_base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Contactanos</title>
+{% endblock %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="row">
+    <h2 class="text-center">Contactanos</h2>
+</div>
+<div class="row ">
+    <form class=" " action="#" method="POST" id="formulariocontacto">
+        {% csrf_token %}
+
+        <div class="form-group col-8 mx-auto ">
+            {{form_contacto.idCon.label}}
+            {{form_contacto.idCon}}
+        </div>
+
+        <div class="form-group col-8 mx-auto">
+            {{form_contacto.nomCon.label}}
+            {{form_contacto.nomCon}}
+        </div>
+
+        <div class="form-group col-8 mx-auto">
+            {{form_contacto.apeCon.label}}
+            {{form_contacto.apeCon}}
+        </div>
+        <div class="form-group col-8 mx-auto">
+            {{form_contacto.correoCon.label}}
+            {{form_contacto.correoCon}}
+        </div>
+        <div class="form-group col-8 mx-auto">
+            {{form_contacto.fonoCon.label}}
+            {{form_contacto.fonoCon}}
+        </div>
+        <div class="form-group col-8 mx-auto">
+            {{form_contacto.motiCon.label}}
+            {{form_contacto.motiCon}}
+        </div>
+        <div class="form-group col-8 mx-auto">
+            
+            {{form_contacto.comentCon.label}}
+            {{form_contacto.comentCon}}
+        </div>
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <input type="submit" class="btn btn-primary" value="Enviar" id="Enviar">
+                <input type="reset" class="btn btn-primary" value="Limpiar" id="Limpiar">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}

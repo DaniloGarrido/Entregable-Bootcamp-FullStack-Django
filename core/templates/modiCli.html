@@ -1,0 +1,53 @@
+{% extends 'plantilla_base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Modificar Clientes</title>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        {% if user.is_authenticated %}
+        <div class="row">
+            <h2>Modificando Datos</h2>
+        </div>
+       
+            <form method="POST" action="#" id="formulariomodicliente">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.nomCli.label}}
+                    {{ form.nomCli}}
+                </div>
+
+                <div class="form-group">
+                    {{ form.apeCli.label}}
+                    {{ form.apeCli}}
+                </div>
+
+                <div class="form-group">
+                    {{ form.correoCli.label}}
+                    {{ form.correoCli}}
+                </div>
+
+                <div class="form-group">
+                    {{ form.fonoCli.label}}
+                    {{ form.fonoCli}}
+                </div>
+                <div class="form-group">
+                    {{ form.direccionCli.label}}
+                    {{ form.direccionCli}}
+                </div>
+
+                <div class="row">
+                    <div class="col-md">
+                        <input type="submit" class="btn btn-primary" value="Enviar" id="Enviar">
+                        <input type="reset" class="btn btn-primary" value="Limpiar" id="Limpiar">
+                    </div>
+                </div>
+            </form>
+            {% else %}
+            <br>
+            <br>
+            <br>
+            <h1 class="text-center" >Usted no tiene acceso a esta funcion...</h1>
+            {% endif %}
+    </div>
+{% endblock %}

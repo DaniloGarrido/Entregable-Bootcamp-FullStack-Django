@@ -1,0 +1,45 @@
+{% extends 'plantilla_base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Inicio de sesion</title>
+{% endblock %}
+{% block content %}
+<script>
+$(function(){
+    $("#form-login").validate({
+            rules: {
+                username:"required",
+                password:"required"
+                
+            }, //rules
+        messages: {
+            username:{
+                required: 'Ingrese un nombre de usuario',
+            },
+            password: {
+                required: 'Ingrese una contraseña',
+                }
+        }
+    }); 
+}); 
+</script>
+<div class="row">
+    <h2 class="text-center">Login</h2>
+    <br>
+    <form  method="post" id="form-login">
+        {% csrf_token %}
+        <div class="form-group col-10 mx-auto">
+            <input type="text" id="username" name="username" placeholder="Usuario..." class="form-control">
+        </div>
+        <br>
+        <div class="form-group col-10 mx-auto">
+            <input type="password" id="password" name="password" placeholder="Contraseña..." class="form-control" >
+        </div>
+        <br>
+        <div class="row">
+            <input class="col-5 btn btn-primary mx-auto" type="submit" value="Ingresar">
+        </div>
+    
+    </form>
+</div>
+{% endblock %}

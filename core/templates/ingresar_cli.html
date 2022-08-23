@@ -1,0 +1,60 @@
+{% extends 'plantilla_base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Ingresar clientes</title>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    {% if user.is_authenticated %}
+    <div class="row">
+        <h2 class="text-center">Ingrese un cliente</h2>
+    </div>
+    <div class="row ">
+        <form class=" " action="#" method="POST" id="formulariocliente">
+            <!--Directiva django para crar y modificar en modo seguro/ info decodificada-->
+            {% csrf_token %}
+            <div class="form-group col-8 mx-auto ">
+                {{form_cliente.idCli.label}}
+                {{form_cliente.idCli}}
+            </div>
+
+            <div class="form-group col-8 mx-auto">
+                {{form_cliente.nomCli.label}}
+                {{form_cliente.nomCli}}
+            </div>
+
+            <div class="form-group col-8 mx-auto">
+                {{form_cliente.apeCli.label}}
+                {{form_cliente.apeCli}}
+            </div>
+            <div class="form-group col-8 mx-auto">
+                {{form_cliente.correoCli.label}}
+                {{form_cliente.correoCli}}
+            </div>
+            <div class="form-group col-8 mx-auto">
+                {{form_cliente.fonoCli.label}}
+                {{form_cliente.fonoCli}}
+            </div>
+            <div class="form-group col-8 mx-auto">
+                {{form_cliente.direccionCli.label}}
+                {{form_cliente.direccionCli}}
+            </div>
+            
+            <div class="row">
+                <div class="col-8 mx-auto">
+                    <input type="submit" class="btn btn-primary" value="Enviar" id="Enviar">
+                    <input type="reset" class="btn btn-primary" value="Limpiar" id="Limpiar">
+                </div>
+            </div>
+        </form>
+    </div>
+    {% else %}
+    <br>
+    <br>
+    <br>
+    <h1 class="text-center" >Usted no tiene acceso a esta funcion...</h1>
+    {% endif %}
+   
+</div>
+{% endblock %}

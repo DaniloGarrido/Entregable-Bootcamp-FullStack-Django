@@ -1,0 +1,49 @@
+{% extends 'plantilla_base.html' %}
+{% load static %}
+{% block titulo %}
+<title>Lista de clientes</title>
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="row col-10 mx-auto" >
+<hr>
+<h2 class="text-center" >Lista de Clientes</h2>
+<br>
+
+<table class="table table-dark  table-striped table-hover align-middle">
+    <thead>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Fono</th>
+        <th>Direccion</th>
+        <th class="text-center" >Editar</th>
+    </thead>
+    <tbody>
+        {% for cli in clientes %}
+            <tr>
+                <td>{{cli.idCli}}</td>
+                <td>{{cli.nomCli}}</td>
+                <td>{{cli.apeCli}}</td>
+                <td>{{cli.correoCli}}</td>
+                <td>{{cli.fonoCli}}</td>
+                <td>{{cli.direccionCli}}</td>
+                <div>
+                <td class="btn-group col-12"><a href="{% url 'modiCli' cli.idCli %}" class="btn btn-primary">Modificar Cliente</a><a href="{% url 'delCli' cli.idCli %}" class="btn btn-danger">Eliminar Cliente </a></td>
+                </div>
+            </tr>
+            
+               
+                            
+        {% endfor %}
+    </tbody>
+</table>
+{% else %} 
+<br>
+<br>
+<br>
+<h1 class="text-center" >Usted no tiene acceso a esta funcion...</h1>
+{% endif %}
+</div>
+{% endblock %}
